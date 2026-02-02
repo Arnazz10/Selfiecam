@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumina | Selfie Cam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Camera Viewport -->
+      <div class="viewport">
+        <video id="webcam" playsinline muted autoplay></video>
+        <canvas id="output"></canvas>
+        <div class="flash-overlay"></div>
+      </div>
+
+      <!-- UI Overlay -->
+      <div class="ui-layer">
+        <header class="top-bar">
+          <div class="logo">
+            <i class="ri-camera-lens-line"></i>
+            <span>Lumina</span>
+          </div>
+          <div class="top-controls">
+            <button id="toggle-camera-btn" class="icon-btn" title="Switch Camera">
+              <i class="ri-camera-switch-line"></i>
+            </button>
+            <button id="settings-btn" class="icon-btn" title="Settings">
+              <i class="ri-settings-3-line"></i>
+            </button>
+          </div>
+        </header>
+
+        <div class="main-controls">
+          <!-- Filters (Horizontal Scroll) -->
+          <div class="filters-container">
+            <div class="filters-list" id="filters-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Bottom Action Area -->
+          <div class="action-bar">
+            <div class="gallery-preview">
+              <button id="gallery-btn" class="gallery-thumb">
+                <i class="ri-image-line"></i>
+              </button>
+            </div>
+
+            <div class="shutter-container">
+              <button id="shutter-btn" class="shutter-btn"></button>
+            </div>
+
+            <div class="mode-switch">
+              <button id="mode-photo" class="mode-btn active">Photo</button>
+              <button id="mode-video" class="mode-btn">Video</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Modal -->
+      <div id="gallery-modal" class="modal hidden">
+        <div class="modal-header">
+          <h2>Gallery</h2>
+          <button id="close-gallery" class="icon-btn"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Items -->
+        </div>
+        <div class="empty-state" id="empty-gallery">
+          <i class="ri-image-add-line"></i>
+          <p>No photos yet</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
